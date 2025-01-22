@@ -16,7 +16,11 @@ export default function Home() {
     },
     body: JSON.stringify({l: 30, w: 30, h: 30})
   }).then(response => response.json())
-    .then(data => setLength(data.body.l))
+    .then((data) => {
+      console.log(data);
+      
+      setLength(data.body.l)
+    })
     .catch(error => console.log(error))
 
   console.log('Home page');
