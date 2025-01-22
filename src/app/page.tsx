@@ -2,6 +2,15 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+
+  fetch('https://d5dgiha5jmol612u9ae9.zj2i1qoy.apigw.yandexcloud.net/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({l: 30, w: 30, h: 30})
+  }).then(response => console.log(response, '_check'))
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
