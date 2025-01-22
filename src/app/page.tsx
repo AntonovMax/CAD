@@ -11,6 +11,9 @@ export default function Home() {
     body: JSON.stringify({l: 30, w: 30, h: 30})
   }).then(response => console.log(response, '_check'))
 
+  console.log('Home page');
+  
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
