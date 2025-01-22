@@ -1,7 +1,12 @@
+'use client'
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useState } from "react";
 
 export default function Home() {
+
+  const [ length, setLength ] = useState(0)
 
   fetch('https://d5dgiha5jmol612u9ae9.zj2i1qoy.apigw.yandexcloud.net/', {
     method: 'POST',
@@ -9,7 +14,8 @@ export default function Home() {
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({l: 30, w: 30, h: 30})
-  }).then(response => console.log(response, '_check'))
+  }).then(response => response.json())
+    .then(data => setLength(data.body.l))
 
   console.log('Home page');
   
@@ -30,7 +36,7 @@ export default function Home() {
             Get started by editing <code>src/app/page.tsx</code>.
           </li>
           <li>Save and see your changes instantly.</li>
-          <li>Add fetch.</li>
+          <li>Add fetch. Length is {length}</li>
         </ol>
 
         <div className={styles.ctas}>
