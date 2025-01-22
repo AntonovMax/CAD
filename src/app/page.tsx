@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useState } from "react";
+import { error } from "console";
 
 export default function Home() {
 
@@ -16,6 +17,7 @@ export default function Home() {
     body: JSON.stringify({l: 30, w: 30, h: 30})
   }).then(response => response.json())
     .then(data => setLength(data.body.l))
+    .catch(error => console.log(error))
 
   console.log('Home page');
   
