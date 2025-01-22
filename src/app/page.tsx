@@ -19,7 +19,7 @@ export default function Home() {
     .then((data) => {
       console.log(data);
       
-      setLength(data.body.l)
+      setLength(data.l)
     })
     .catch(error => console.log(error))
 
